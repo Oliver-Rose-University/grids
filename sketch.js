@@ -1,14 +1,31 @@
 const CELLSIZES = [50, 100, 200]
-const COLOURS = ["Red", "Yellow", "MidnightBlue", "SeaShell", "SeaShell", "SeaShell", "Black"]
+const COLOURS = ["Red", "Yellow", "MidnightBlue", "SeaShell", "SeaShell", "SeaShell"]
 
 function setup() {
   createCanvas(600, 600);
   noLoop()
   strokeWeight(10);
+  strokeCap(5)
 }
 
 function draw() {
   background(220);
+
+  let x = 0
+    let y = 0
+    let currentWidth = random(CELLSIZES);
+    let currentHeight = random(CELLSIZES);
+    while(y < height){
+      while(x < width){
+        fill(random(COLOURS));
+        rect(x, y, currentWidth, currentHeight);
+        x+= currentWidth;
+        currentWidth = random(CELLSIZES);
+      }
+      x = 0;
+      y += currentHeight;
+      currentHeight = random(CELLSIZES);
+  }
   const ARCVALUES = [TAU * 0.25, TAU * 0.5, TAU * 0.75, TAU];
   const CELLSIZE = 50;
   for(let y = 0; y < height; y+= CELLSIZE){
@@ -19,22 +36,6 @@ function draw() {
 
     }
   }
-
-    // let x = 0
-    // let y = 0
-    // let currentWidth = random(CELLSIZES);
-    // let currentHeight = random(CELLSIZES);
-    // while(y < height){
-    //   while(x < width){
-    //     fill(random(COLOURS));
-    //     rect(x, y, currentWidth, currentHeight);
-    //     x+= currentWidth;
-    //     currentWidth = random(CELLSIZES);
-    //   }
-    //   x = 0;
-    //   y += currentHeight;
-    //   currentHeight = random(CELLSIZES);
-  // }
 }
 
 
