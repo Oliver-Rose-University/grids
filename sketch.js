@@ -6,6 +6,9 @@ function setup() {
   noLoop()
   strokeWeight(10);
   strokeCap(5)
+  let button = createButton("Click to Redraw");
+  button.class("button");
+  button.mousePressed(draw);
 }
 
 function draw() {
@@ -37,6 +40,3 @@ function draw() {
     }
   }
 }
-
-
-
