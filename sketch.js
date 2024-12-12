@@ -1,7 +1,15 @@
+let TEXTURES = [];
+let texture1;
 const CELLSIZES = [50, 100, 200]
 const COLOURS = ["Red", "Yellow", "MidnightBlue", "SeaShell", "SeaShell", "SeaShell"]
 
+function preload(){
+    // backgroundTextures.push(loadImage("images/texture-trans"+i+".png")); // old school concatenation 
+    TEXTURES.push(loadImage("assets/texture-trans4.png")); // ES6 template literal with string interpolation
+}
+
 function setup() {
+  console.log(texture1)
   createCanvas(600, 600);
   noLoop()
   strokeWeight(10);
@@ -12,7 +20,7 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  noFill()
 
   let x = 0
     let y = 0
@@ -20,7 +28,8 @@ function draw() {
     let currentHeight = random(CELLSIZES);
     while(y < height){
       while(x < width){
-        fill(random(COLOURS));
+        tint(random(COLOURS));
+        image(random(TEXTURES), x, y, currentWidth, currentHeight)
         rect(x, y, currentWidth, currentHeight);
         x+= currentWidth;
         currentWidth = random(CELLSIZES);
